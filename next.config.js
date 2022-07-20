@@ -5,7 +5,6 @@ const nextConfig = {
   images: {
     domains: ["store.storeimages.cdn-apple.com"],
   },
-  experimental: { images: { allowFutureImage: true } },
 };
 
 module.exports = nextConfig;

@@ -4,29 +4,35 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 // frontend@upayments.com
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 
-import productsSlice, { getProducts } from "../redux/features/productsSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { Dashboard, Header } from "../components";
 
+import { getProducts } from "../redux/features/productsSlice";
+import { getCategories } from "../redux/features/categorySlice";
+
 const Home: NextPage = () => {
   const dispatch = useAppDispatch();
+  const router = useRouter();
+
+  const { productsState, category, isLoading } = useAppSelector(
+    (reducer: any) => ({
+      productsState: reducer.products.items,
+      category: reducer.categories.items,
+      isLoading: reducer.products.isLoading,
+    })
+  );
 
   useEffect(() => {
     dispatch(getProducts());
-    console.log("useEffect initialized");
-    return () => {
-      console.log("useEffect destroyed");
-    };
+    dispatch(getCategories());
   }, []);
 
-  const { productsState } = useAppSelector((reducer: any) => ({
-    productsState: reducer.products.items,
-  }));
-
-  console.log(productsState);
+  const handleGoToAddPAge = () => {
+    router.push("/add-product");
+  };
 
   return (
     <div className="justify-center items-center flex flex-col">
@@ -36,8 +42,18 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header title="Home" subtitle="React Task" />
-      <Dashboard data={productsState}> </Dashboard>
+      <div className="container">
+        <Header subtitle="" title="Dashboard" />
+        <Header title="Home" subtitle="React Task" />
+        <Dashboard data={productsState} />
+      </div>
+
+      <button
+        className="fixed bottom-4 md:right-20 md:bottom-20 bg-black rounded-3xl p-4"
+        onClick={handleGoToAddPAge}
+      >
+        <p className="text-white text-2xl">Add Product</p>
+      </button>
     </div>
   );
 };
