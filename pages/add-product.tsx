@@ -59,7 +59,7 @@ const AddProduct = () => {
   return (
     <div className="justify-center items-center flex flex-col">
       <div className="container justify-center items-center flex flex-col">
-        <Header subtitle="" title="Add Product" />
+        <Header subtitle="React-task" title="Add Product"  />
         <div className="w-full max-w-3xl flex flex-col gap-5">
           <form className="w-full max-w-3xl mt-10 shadow-2xl p-4 rounded-2xl flex flex-col">
             <InputArea title="name" onChange={handleChange} />
