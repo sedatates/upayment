@@ -20,7 +20,7 @@ const Dashboard: React.FC<Props> = ({ data }) => {
     <div className="grid md:grid-cols-4 gap-4 m-4">
       {data?.map((item: any) => (
         <div
-          key={item?.id}
+          key={item?.createdAt}
           className="rounded-lg shadow-lg bg-white max-w-7xl flex flex-col cursor-pointer"
           onClick={() => handleGoToDetails(item?.id)}
         >

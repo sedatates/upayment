@@ -28,11 +28,11 @@ const DetailsPage: NextPage = () => {
         <Header title="Details" subtitle="Register" />
 
         <div className="flex flex-col md:flex-row rounded-lg shadow-lg shadow-slate-400 drop-shadow-lg mt-10">
-          <div key={data.id} className=" bg-white max-w-7xl flex flex-row ">
+          <div key={data?.id} className=" bg-white max-w-7xl flex flex-row ">
             {data?.avatar && (
               <Image
                 className="rounded-t-lg"
-                src={`${data.avatar}`}
+                src={`${data?.avatar}`}
                 alt=""
                 width={600}
                 height={600}
@@ -44,7 +44,7 @@ const DetailsPage: NextPage = () => {
           <div className="flex flex-col w-full bg-slate-100 justify-between  p-4 text-center md:text-left">
             <div className="flex bg-slate-100 justify-between items-center">
               <h1 className="font-medium text-xl md:text-6xl text-gray-900">
-                {data.name}
+                {data?.name}
               </h1>
               <button
                 onClick={() => deleteProduct(data.id)}
@@ -59,7 +59,7 @@ const DetailsPage: NextPage = () => {
                 Category
               </h2>
               <h2 className="text-gray-900 font-thin text-2xl md:text-3xl">
-                {data.category}
+                {data?.category}
               </h2>
             </div>
 
@@ -68,13 +68,13 @@ const DetailsPage: NextPage = () => {
                 Description
               </h2>
               <p className="text-gray-900 font-thin text-2xl md:text-3xl">
-                {data.description}
+                {data?.description}
               </p>
             </div>
 
             <div className="">
               <p className="my-4 font-semibold leading-6 text-5xl text-gray-400">
-                {`${data.price} $`}
+                {`${data?.price} $`}
               </p>
             </div>
           </div>
