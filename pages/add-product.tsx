@@ -63,7 +63,7 @@ const AddProduct = () => {
         <div className="w-full max-w-3xl flex flex-col gap-5">
           <form className="w-full max-w-3xl mt-10 shadow-2xl p-4 rounded-2xl flex flex-col">
             <InputArea title="name" onChange={handleChange} />
-            <InputArea title="price" onChange={handleChange} />
+            <InputArea type="number" title="price" onChange={handleChange} />
             <InputArea title="description" onChange={handleChange} />
             <Dropdown title="category" onChange={handleChange} />
             <InputArea title="avatar" onChange={handleChange} />
